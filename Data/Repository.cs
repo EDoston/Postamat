@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DeliveryToPostamt.Data
 {
-    public class Repository
+    public class Repository<T> : List<T>
     {
         public static List<Order> repository = null;
         public Repository() {  }
