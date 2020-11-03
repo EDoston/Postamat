@@ -12,18 +12,21 @@ namespace DeliveryToPostamt.Data
         {
             orderList.Add(order);
         }
-        public void UpdateOrder(Order order)
+        public bool UpdateOrder(Order order)
         {
             var result = orderList.Find(x=> x.Id ==order.Id);
-            if(result != null)
-            {
-                result.StateId = order.StateId;
-                result.ContentOrder = order.ContentOrder;
-                result.Price = order.Price;
-                result.PostamatId = order.PostamatId;
-                result.Phone = order.Phone;
-                result.FIO = order.FIO;
-            }
+            if(result == null) {
+                return false;
+            }   
+                   
+            result.StateId = order.StateId;
+            result.ContentOrder = order.ContentOrder;
+            result.Price = order.Price;
+            result.PostamatId = order.PostamatId;
+            result.Phone = order.Phone;
+            result.FIO = order.FIO;  
+
+            return false;      
         }
         public Order GetOrder(int id)
         {

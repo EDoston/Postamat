@@ -9,7 +9,7 @@ namespace DeliveryToPostamt.Services
     {
         GetOrderDto GetOrderById(int id);
         void AddOrder(AddOrderDto newOrder);
-        void UpdateOrder(UpdateOrderDto updateOrder);
+        bool UpdateOrder(UpdateOrderDto updateOrder);
         void DeleteOrder(int id);
     }
 }

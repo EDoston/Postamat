@@ -29,10 +29,11 @@ namespace DeliveryToPostamt.Services
         {
            return _mapper.Map<GetOrderDto>(_orderRepository.GetOrder(id));
         }
-        
-        public void UpdateOrder(UpdateOrderDto updateOrder)
+
+        public bool UpdateOrder(UpdateOrderDto updateOrder)
         {
             Order order = _mapper.Map<Order>(updateOrder);
+            return _orderRepository.UpdateOrder(order);
         }
     }
 }
