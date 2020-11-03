@@ -15,12 +15,17 @@ namespace DeliveryToPostamt.Controllers
         {
             this._orderService = _orderService;
         }
+
         [HttpPost]
         public IActionResult AddOrder(AddOrderDto addOrderDto)
         {
+            if(!ModelState.IsValid) {
+                return BadRequest(ModelState);
+            }
             _orderService.AddOrder(addOrderDto);
             return Ok();
         }
+
         [HttpPut]
         public IActionResult UpdateOrder(UpdateOrderDto updateOrderDto)
         {
@@ -30,6 +35,7 @@ namespace DeliveryToPostamt.Controllers
             }
             return Ok();
         }
+
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -38,7 +44,8 @@ namespace DeliveryToPostamt.Controllers
                 return NotFound();
             }
             return Ok(order);
-        }     
+        }
+
         [HttpDelete("{id}")]
         public IActionResult CancelOrder(int id)
         {

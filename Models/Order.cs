@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace DeliveryToPostamt.Models
 {
@@ -11,6 +12,8 @@ namespace DeliveryToPostamt.Models
         public decimal Price { get; set;}
         public int PostamatId { get; set; }
         public Postamat Postamat { get; set; }
+        
+       
         public string Phone { get; set; }
         public string FIO { get; set; }       
     }
