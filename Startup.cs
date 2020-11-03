@@ -29,6 +29,8 @@ namespace DeliveryToPostamt
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IPostmatRepository, PostmatRepository>();
+            services.AddScoped<IPostmatService, PostmatService>();
             services.AddControllers();
             services.AddAutoMapper(typeof(Startup));
         }
@@ -41,16 +43,16 @@ namespace DeliveryToPostamt
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+          //  app.UseHttpsRedirection();
 
             app.UseRouting();
 
-            app.UseAuthorization();
+          //  app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
+          app.UseEndpoints(endpoints =>
+           {
                 endpoints.MapControllers();
-            });
+           });
         }
     }
 }
