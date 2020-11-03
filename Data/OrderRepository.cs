@@ -13,13 +13,20 @@ namespace DeliveryToPostamt.Data
         }
         public void CreateOrder(Order order)
         {
-            int id = 1;
-            order.Id = id++;
+            if (orderList.Count == 0)
+            {
+                order.Id = 1;
+            }   
+            else
+            {
+                order.Id = (orderList[orderList.Count-1].Id) + 1 ;
+            }
+          
             orderList.Add(order);
         }
         public bool UpdateOrder(Order order)
         {
-            var result = orderList.Find(x=> x.Id ==order.Id);
+            var result = orderList.FirstOrDefault(x=> x.Id ==order.Id);
             if(result == null) {
                 return false;
             }   
@@ -31,16 +38,21 @@ namespace DeliveryToPostamt.Data
             result.Phone = order.Phone;
             result.FIO = order.FIO;  
 
-            return false;      
+            return true;      
         }      
         public Order GetOrder(int id)
         {
             return orderList.FirstOrDefault(x => x.Id == id);
         }
-        public void CancelOrder(int id)
+        public bool CancelOrder(int id)
         {
-            var result = orderList.Find(x=> x.Id ==id);
+            var result = orderList.FirstOrDefault(x=> x.Id ==id);
+            if(result == null)
+            {
+                return false;
+            }
             result.StateId = (int)State.Canceled;
+            return true;
         }
     }
 }

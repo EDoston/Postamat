@@ -9,7 +9,7 @@ namespace DeliveryToPostamt
         public ApiMappings()
         {
             this.CreateMap<AddOrderDto, Order>();
-            this.CreateMap<GetOrderDto, Order>();
+            this.CreateMap<Order, GetOrderDto > ();
             this.CreateMap<UpdateOrderDto, Order>();
         }
     }

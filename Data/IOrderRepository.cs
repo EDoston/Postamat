@@ -8,6 +8,6 @@ namespace DeliveryToPostamt.Data
         void CreateOrder(Order order);
         bool UpdateOrder(Order order);
         Order GetOrder(int id);
-        void CancelOrder(int id);
+        bool CancelOrder(int id);
     }
 }

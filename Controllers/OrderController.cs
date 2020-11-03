@@ -22,7 +22,7 @@ namespace DeliveryToPostamt.Controllers
             return Ok();
         }
         [HttpPut]
-        public IActionResult UpdateOrder([FromBody] UpdateOrderDto updateOrderDto)
+        public IActionResult UpdateOrder(UpdateOrderDto updateOrderDto)
         {
             bool state = _orderService.UpdateOrder(updateOrderDto);
             if(state == false) {
@@ -38,6 +38,16 @@ namespace DeliveryToPostamt.Controllers
                 return NotFound();
             }
             return Ok(order);
-        }      
+        }     
+        [HttpDelete("{id}")]
+        public IActionResult CancelOrder(int id)
+        {
+            bool state = _orderService.DeleteOrder(id);
+            if(state == false)
+            {
+                return NotFound();
+            }
+            return Ok();
+        }
     }
 }

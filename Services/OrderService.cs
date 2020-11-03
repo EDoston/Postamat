@@ -19,18 +19,15 @@ namespace DeliveryToPostamt.Services
             Order order = _mapper.Map<Order>(newOrder);
             _orderRepository.CreateOrder(order);
         }
-
-        public void DeleteOrder(int id)
+        public bool DeleteOrder(int id)
         {
-            _orderRepository.CancelOrder(id);
+           return _orderRepository.CancelOrder(id);
         }
-
         public GetOrderDto GetOrderById(int id)
         {
            Order order = _orderRepository.GetOrder(id);
            return _mapper.Map<GetOrderDto>(order);
         }
-
         public bool UpdateOrder(UpdateOrderDto updateOrder)
         {
             Order order = _mapper.Map<Order>(updateOrder);
