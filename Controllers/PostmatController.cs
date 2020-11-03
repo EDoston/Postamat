@@ -14,13 +14,13 @@ namespace DeliveryToPostamt.Controllers
              this._postmatService = _postmatService;
         }
 
-        [HttpGet("echo/{echo}")]
+   /*      [HttpGet("echo/{echo}")]
         public IActionResult echo(string echo)
         {           
             return Ok(echo);          
-        }
+        } */
 
-        [HttpGet("{id}")]
+       [HttpGet("{id}")]
         public IActionResult Get(string id)
         {
             var postmat = _postmatService.Get(id);
@@ -28,6 +28,6 @@ namespace DeliveryToPostamt.Controllers
                 return NotFound();
             } 
             return Ok(postmat);           
-        }
+        }      
     }
 }

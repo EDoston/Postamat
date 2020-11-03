@@ -1,12 +1,13 @@
 using DeliveryToPostamt.Data;
 using DeliveryToPostamt.Dtos;
+using DeliveryToPostamt.Models;
 using DeliveryToPostamt.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DeliveryToPostamt.Controllers
 {
     [ApiController]
-    [Route("api/postmat/")]
+    [Route("api/order/")]
     public class OrderController : ControllerBase
     {
         private readonly IOrderService _orderService;
@@ -14,7 +15,6 @@ namespace DeliveryToPostamt.Controllers
         {
             this._orderService = _orderService;
         }
-
         [HttpPost]
         public IActionResult AddOrder(AddOrderDto addOrderDto)
         {
@@ -30,7 +30,6 @@ namespace DeliveryToPostamt.Controllers
             }
             return Ok();
         }
-
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {

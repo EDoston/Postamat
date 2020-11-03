@@ -6,7 +6,7 @@ namespace DeliveryToPostamt.Dtos
     {
         public int StateId { get; set; }
         public State State { get; set; }
-        public int[] ContentOrder { get; set; }
+        public string[] ContentOrder { get; set; }
         public decimal Price { get; set;}
         public int PostamatId { get; set; }
         public string Phone { get; set; }

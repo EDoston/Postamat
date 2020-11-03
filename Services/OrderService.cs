@@ -27,7 +27,8 @@ namespace DeliveryToPostamt.Services
 
         public GetOrderDto GetOrderById(int id)
         {
-           return _mapper.Map<GetOrderDto>(_orderRepository.GetOrder(id));
+           Order order = _orderRepository.GetOrder(id);
+           return _mapper.Map<GetOrderDto>(order);
         }
 
         public bool UpdateOrder(UpdateOrderDto updateOrder)

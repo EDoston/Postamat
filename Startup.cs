@@ -30,10 +30,14 @@ namespace DeliveryToPostamt
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddAutoMapper(typeof(ApiMappings));
+            services.AddControllers();
+            services.AddAutoMapper(typeof(ApiMappings));
             services.AddScoped<IPostmatRepository, PostmatRepository>();
             services.AddScoped<IPostmatService, PostmatService>();
-            services.AddControllers();
-            services.AddAutoMapper(typeof(Startup));
+            
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IOrderService, OrderService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
