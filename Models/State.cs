@@ -2,7 +2,7 @@ namespace DeliveryToPostamt.Models
 {
     public enum State
     {
-        Registered,
+        Registered=1,
         Accepted,
         Issued,
         DeliveredToTheCheckPoint,

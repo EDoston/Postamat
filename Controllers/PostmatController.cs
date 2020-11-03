@@ -8,8 +8,7 @@ namespace DeliveryToPostamt.Controllers
     [Route("api/postmat/")]
     public class PostmatController : ControllerBase
     {
-        private readonly IPostmatService _postmatService;
-        
+        private readonly IPostmatService _postmatService;      
         public PostmatController(IPostmatService _postmatService)
         {
              this._postmatService = _postmatService;
