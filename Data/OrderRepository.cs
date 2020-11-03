@@ -7,10 +7,7 @@ namespace DeliveryToPostamt.Data
     public class OrderRepository : IOrderRepository
     {
         public static List<Order> orderList = null;
-        static OrderRepository()
-        {
-            
-        }
+        static OrderRepository() {}
         public void CreateOrder(Order order)
         {
             orderList.Add(order);
