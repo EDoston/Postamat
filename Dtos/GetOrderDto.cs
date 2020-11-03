@@ -10,6 +10,6 @@ namespace DeliveryToPostamt.Dtos
         public decimal Price { get; set;}
         public int PostamatId { get; set; }
         public string Phone { get; set; }
-        public string FIO { get; set; }
+        public string FIO { get; set; } 
     }
 }
