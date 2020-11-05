@@ -21,7 +21,7 @@ namespace DeliveryToPostamt.Controllers
         } */
 
        [HttpGet("{id}")]
-        public IActionResult Get(string id)
+        public IActionResult Get(int id)
         {
             var postmat = _postmatService.Get(id);
             if(postmat == null) {

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using DeliveryToPostamt.Dtos;
 using DeliveryToPostamt.Models;
 
 namespace DeliveryToPostamt.Data
@@ -11,7 +10,7 @@ namespace DeliveryToPostamt.Data
         static OrderRepository() {
             orderList = new List<Order>();
         }
-        public void CreateOrder(Order order)
+        public void Add(Order order)
         {
             if (orderList.Count == 0)
             {
@@ -19,14 +18,14 @@ namespace DeliveryToPostamt.Data
             }   
             else
             {
-                order.Id = (orderList[orderList.Count-1].Id) + 1 ;
+                order.Id = (orderList[orderList.Count - 1].Id) + 1 ;
             }
           
             orderList.Add(order);
         }
-        public bool UpdateOrder(Order order)
+        public bool Update(Order order)
         {
-            var result = orderList.FirstOrDefault(x=> x.Id ==order.Id);
+            var result = GetById(order.Id);
             if(result == null) {
                 return false;
             }   
@@ -40,13 +39,13 @@ namespace DeliveryToPostamt.Data
 
             return true;      
         }      
-        public Order GetOrder(int id)
+        public Order GetById(int id)
         {
             return orderList.FirstOrDefault(x => x.Id == id);
         }
-        public bool CancelOrder(int id)
+        public bool Cancel(int id)
         {
-            var result = orderList.FirstOrDefault(x=> x.Id ==id);
+            var result = orderList.FirstOrDefault(x=> x.Id == id);
             if(result == null)
             {
                 return false;

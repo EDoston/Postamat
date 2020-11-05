@@ -10,7 +10,7 @@ namespace DeliveryToPostamt.Services
         {
             this._postmatRepository = _postmatRepository;
         }
-        Postamat IPostmatService.Get(string Id)
+        Postamat IPostmatService.Get(int Id)
         {
             return _postmatRepository.GetPostamat(Id);
         }

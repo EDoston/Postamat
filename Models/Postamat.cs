@@ -2,12 +2,12 @@ namespace DeliveryToPostamt.Models
 {
     public class Postamat
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Address { get; set; }
         // TODO - Is, Has или enum
         public bool State { get; set; }
 
-        public Postamat(string Id, string Address, bool State)
+        public Postamat(int Id, string Address, bool State)
         {
             this.Id = Id;
             this.Address = Address;

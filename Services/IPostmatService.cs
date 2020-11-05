@@ -4,6 +4,6 @@ namespace DeliveryToPostamt.Services
 {
     public interface IPostmatService
     {
-        Postamat Get(string Id);
+        Postamat Get(int Id);
     }
 }
