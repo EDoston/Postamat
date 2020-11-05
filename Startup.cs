@@ -31,6 +31,7 @@ namespace DeliveryToPostamt
         {
             services.AddControllers();
             services.AddAutoMapper(typeof(ApiMappings));
+            
             services.AddScoped<IPostmatRepository, PostmatRepository>();
             services.AddScoped<IPostmatService, PostmatService>();
             

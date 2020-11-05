@@ -7,22 +7,23 @@ namespace DeliveryToPostamt.Data
     public class OrderRepository : IOrderRepository
     {
         public static List<Order> orderList = null;
+
         static OrderRepository() {
             orderList = new List<Order>();
         }
+
         public void Add(Order order)
         {
-            if (orderList.Count == 0)
-            {
+            if (orderList.Count == 0) {
                 order.Id = 1;
             }   
-            else
-            {
+            else {
                 order.Id = (orderList[orderList.Count - 1].Id) + 1 ;
             }
           
             orderList.Add(order);
         }
+
         public bool Update(Order order)
         {
             var result = GetById(order.Id);
@@ -43,14 +44,16 @@ namespace DeliveryToPostamt.Data
         {
             return orderList.FirstOrDefault(x => x.Id == id);
         }
+
         public bool Cancel(int id)
         {
             var result = orderList.FirstOrDefault(x=> x.Id == id);
-            if(result == null)
-            {
+            if(result == null) {
                 return false;
             }
+
             result.StateId = (int)State.Canceled;
+
             return true;
         }
     }

@@ -4,7 +4,6 @@ namespace DeliveryToPostamt.Models
     {
         public int Id { get; set; }
         public string Address { get; set; }
-        // TODO - Is, Has или enum
         public bool State { get; set; }
 
         public Postamat(int Id, string Address, bool State)

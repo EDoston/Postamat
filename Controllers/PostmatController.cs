@@ -1,11 +1,10 @@
-using System.Threading.Tasks;
 using DeliveryToPostamt.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DeliveryToPostamt.Controllers
 {
     [ApiController]
-    [Route("api/postmat/")]
+    [Route("api/postamat/")]
     public class PostmatController : ControllerBase
     {
         private readonly IPostmatService _postmatService;      
@@ -14,12 +13,6 @@ namespace DeliveryToPostamt.Controllers
              this._postmatService = _postmatService;
         }
 
-   /*      [HttpGet("echo/{echo}")]
-        public IActionResult echo(string echo)
-        {           
-            return Ok(echo);          
-        } */
-
        [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
@@ -27,6 +20,7 @@ namespace DeliveryToPostamt.Controllers
             if(postmat == null) {
                 return NotFound();
             } 
+
             return Ok(postmat);           
         }      
     }
